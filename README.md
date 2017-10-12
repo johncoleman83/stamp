@@ -2,14 +2,20 @@
 
 : Pinterest MVP 2 hour project
 
-* [demo and all endpoints](https://www.cecinestpasun.site)
+## Usage
 
-## Description
+* run server
 
 ```
-$ MYSQL_USER=stamp_dev MYSQL_PWD=stamp_dev_pwd \
-MYSQL_HOST=localhost MYSQL_DB=stamp_dev_db \
-python3 -m main_app.app
+$ MYSQL_USER=stamp_dev MYSQL_PWD=stamp_dev_pwd MYSQL_HOST=localhost \
+MYSQL_DB=stamp_dev_db python3 -m main_app.app
+```
+
+* run api
+
+```
+MYSQL_USER=stamp_dev MYSQL_PWD=stamp_dev_pwd MYSQL_HOST=localhost \
+MYSQL_DB=stamp_dev_db API_HOST=0.0.0.0 API_PORT=5001 python3 -m api.v1.app
 ```
 
 ## Environment
@@ -28,53 +34,7 @@ python3 -m main_app.app
   * __bash:__ ShellCheck 0.3.3
   * __JavaScript:__ semistandard 11.0.0
 
-## Configuration Files
-
-The `/config/` directory contains configuration files for `nginx` and the
-Upstart scripts.  The nginx configuration file is for the configuration file in
-the path: `/etc/nginx/sites-available/default`.  The enabled site is a sym link
-to that configuration file.  The upstart script should be saved in the path:
-`/etc/init/[FILE_NAME.conf]`.  To begin this service, execute:
-
-```
-$ sudo start airbnb.conf
-```
-This script's main task is to execute the following `gunicorn` command:
-
-```
-$ gunicorn --bind 127.0.0.1:8001 wsgi.wsgi_airbnb:app.app
-```
-
-The `gunicorn` command starts an instance of a Flask Application.
-
----
-
-### Web Server Gateway Interface (WSGI)
-
-All integration with gunicorn occurs with `Upstart` `.conf` files.  The python
-code for the WSGI is listed in the `/wsgi/` directory.  These python files run
-the designated Flask Application.
-
-## Setup
-
-This project comes with various setup scripts to support automation, especially
-during maintanence or to scale the entire project.  The following files are the
-setupfiles along with a brief explanation:
-
-* **`dev/setup.sql`:** Drops test and dev databases, and then reinitializes
-the database.
-
-  * Usage: `$ cat dev/bd/drop_recreate_dev_test_db.sql | mysql -uroot -p`
-
-* **`3-deploy_web_static.py`:** uses 2 functions from (1-pack_web_static.py &
-  2-do_deploy_web_static.py) that use the fabric3 python integration, to create
-  a `.tgz` file on local host of all the local web static fils, and then calls
-  the other function to deploy the compressed web static files.  Command must
-  be executed from the `AirBnB_clone` root directory.
-
-  * Usage: `$ fab -f 3-deploy_web_static.py deploy -i ~/.ssh/holberton -u ubuntu`
-
-## Authors
+## Author
 
 * David John Coleman II, [davidjohncoleman.com](http://www.davidjohncoleman.com/) | [@djohncoleman](https://twitter.com/djohncoleman)
 
