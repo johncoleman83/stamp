@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block content %}
+<MAIN>
+  <DIV class="container">
+
+    <!-- **********************
+	 FILTERS
+	 ********************** -->
+
+    <SECTION id="{{ auth_token }}" class="filters">
+
+
+      <!-- **********************
+	   SEARCH BUTTON
+	   ********************** -->
+
+      <button>Search</button>
+    </SECTION>
+
+    <section class="places">
+      <h1>User Stamps</h1>
+
+      <!-- **********************
+	   BEGIN 1 PLACE
+	   ********************** -->
+
+      {% for user in users %}
+
+      <article>
+
+	<div class="title">
+
+	  <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+
+	</div>
+	{% for image in user.images %}
+	<div class="information">
+	  <div class="max_guest">
+	    <i class="fa fa-camera fa-3x" aria-hidden="true"></i>
+
+	    Title: {{ image.title }}
+
+	  </div>
+	  <div class="number_rooms">
+	    <i class="fa fa-object-group fa-3x" aria-hidden="true"></i>
+
+	    Family: {{ image.family }}
+
+	  </div>
+	  <div class="number_bathrooms">
+	    <i class="fa fa-archive fa-3x" aria-hidden="true"></i>
+
+	    Collection: {{ image.collection }}
+
+	  </div>
+	</div>
+	<div class="description">
+
+	  <img src="{{ image.url }}">
+
+	</div>
+	{% endfor %}
+
+      </article> <!-- End 1 PLACE Article -->
+
+      {% endfor %}
+
+    </section>
+
+  </DIV>
+</MAIN>
+{% endblock %}

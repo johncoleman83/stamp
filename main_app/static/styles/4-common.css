@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/** Holberton Practice Styles
+ * ------ Common
+ */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #484848;
+    font-size: 14px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+main {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+div.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/** MAIN INPUT FORM **/
+
+.error_message {
+    text-align: center;
+    font-size: 14px;
+}
+
+h2.text-center {
+    text-align: center;
+}
+
+button#login,
+header button {
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #3159ad;
+    height: 48px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button#login {
+    width: 40%;
+    margin: auto;
+}
+
+header button {
+    width: 145%;
+}
+
+header form {
+    margin: auto 10% auto auto;
+}
+
+input.form-control {
+    padding: 10px;
+    font-size: 20px;
+    margin: 3px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: center;
+}
+
+.form_bg {
+    background-color: #eee;
+    color: #666;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #313131;
+    margin: auto;
+    width: 320px;
+    height: 280px;
+}
+
+.align-center {
+    text-align:center;
+}
