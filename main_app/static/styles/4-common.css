@@ -35,9 +35,15 @@ div.container {
 
 /** MAIN INPUT FORM **/
 
-.error_message {
+.instructions {
     text-align: center;
     font-size: 14px;
+}
+
+.response_message {
+    text-align: center;
+    font-size: 18px;
+    color: #FF0000;
 }
 
 h2.text-center {
